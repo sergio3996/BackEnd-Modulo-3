@@ -5,10 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var usuariosRouter = require('./routes/usuarios');
 var usersRouter = require('./routes/users');
 var biciletasRouter = require('./routes/bicicletas');
 var bicicletasAPIRouter = require('./routes/api/bicicletas');
 var usuariosAPIRouter = require('./routes/api/usuarios');
+var tokenRouter = require('./routes/token');
 
 var app = express();
 
@@ -35,6 +37,9 @@ app.use('/users', usersRouter);
 app.use('/bicicletas', biciletasRouter);
 app.use('/api/bicicletas', bicicletasAPIRouter);
 app.use('/api/usuarios', usuariosAPIRouter);
+app.use('/usuarios', usuariosRouter);
+app.use('/token', tokenRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
